@@ -1,0 +1,6 @@
+name = "cloudrutwik"
+type = "javascript"
+account_id = "c95788c101b6667faa1841ac0e114cf6"
+workers_dev = true
+route = ""
+zone_id = ""
