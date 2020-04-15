@@ -47,9 +47,9 @@ async function responseCheck(furl, orl) {
 
   // Using the charC decide what type of imbalance will be caused next and store information in cookies to persist versions as asked in the extra credit tasks
   if (charC === '1'){
-    responseClone.headers.append('Set-Cookie', `cloud=imbalance2 ${furl} ${orl}; Expires=Wed, 21 Oct 2020 07:28:00 GMT; path=/`)
+    responseClone.headers.set('Set-Cookie', `cloud=imbalance2 ${furl} ${orl}; Expires=Wed, 21 Oct 2020 07:28:00 GMT; path=/`)
   } else {
-    responseClone.headers.append('Set-Cookie', `cloud=imbalance1 ${furl} ${orl}; Expires=Wed, 21 Oct 2020 07:28:00 GMT; path=/`)
+    responseClone.headers.set('Set-Cookie', `cloud=imbalance1 ${furl} ${orl}; Expires=Wed, 21 Oct 2020 07:28:00 GMT; path=/`)
   }
 
   return new HTMLRewriter().on('*', new ElementHandler(furl)).transform(responseClone)
@@ -67,24 +67,24 @@ class ElementHandler {
 
     if (element.tagName == 'title') {
       if (self.url.charAt(self.url.length-1) === '1') {
-        element.setInnerContent("Rutwik V1")
+        element.setInnerContent("Cloudflare worker")
       }else{
-        element.setInnerContent("Rutwik V2")
+        element.setInnerContent("Cloudflare dev")
       }
     }
     if (element.tagName == 'h1') {
       if (self.url.charAt(self.url.length-1) === '1') {
-        element.setInnerContent("Rutwik V1")
+        element.setInnerContent("Cloudflare worker")
       }else{
-        element.setInnerContent("Rutwik V2")
+        element.setInnerContent("Cloudflare dev")
       }
     }
 
     if (element.tagName == 'p') {
       if (self.url.charAt(self.url.length-1) === '1') {
-        element.setInnerContent("Okay changed the description V1")
+        element.setInnerContent("The Network is the computer")
       }else{
-        element.setInnerContent("Okay changed the description V2")
+        element.setInnerContent("The computer is not the network")
       }
     }
 
